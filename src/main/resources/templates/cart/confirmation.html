@@ -1,0 +1,90 @@
+<!-- templates/cart/confirmation.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <meta http-equiv="refresh" content="5;url=/books" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-color: #f0f2f5;
+            text-align: center;
+            color: #333;
+        }
+
+        .top-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        a.logout-button {
+            text-decoration: none;
+            padding: 10px 16px;
+            background-color: #f44336;
+            color: white;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        a.logout-button:hover {
+            background-color: #d32f2f;
+        }
+
+        .confirmation-container {
+            max-width: 600px;
+            margin: 100px auto 0;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 40px 30px;
+        }
+
+        .confirmation-icon {
+            font-size: 64px;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .shop-more {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .shop-more:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<div class="top-right">
+    <a href="/logout" class="logout-button">Logout</a>
+</div>
+
+<div class="confirmation-container">
+    <div class="confirmation-icon">✅</div>
+    <h1 th:text="${message}">Your order has been placed successfully!</h1>
+    <p>You’ll be redirected to the books page in 5 seconds...</p>
+    <a class="shop-more" th:href="@{/books}">← Continue Shopping</a>
+</div>
+
+</body>
+</html>
+

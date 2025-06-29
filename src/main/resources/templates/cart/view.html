@@ -1,0 +1,203 @@
+<!-- templates/cart/view.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Cart</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+
+        .top-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        a.logout-button {
+            text-decoration: none;
+            padding: 10px 16px;
+            background-color: #f44336;
+            color: white;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        a.logout-button:hover {
+            background-color: #d32f2f;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+        }
+
+        table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        td:last-child a {
+            color: #f44336;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        td:last-child a:hover {
+            text-decoration: underline;
+        }
+
+        .book-icon {
+            font-size: 24px;
+            margin-right: 6px;
+        }
+
+        .total-section, .checkout-section {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .checkout-section label {
+            display: block;
+            margin-top: 12px;
+        }
+
+        .checkout-section input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .checkout-section button {
+            margin-top: 20px;
+            padding: 10px 18px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .checkout-section button:hover {
+            background-color: #218838;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="top-right">
+    <a href="/logout" class="logout-button">Logout</a>
+</div>
+
+<h1>🛍️ Your Shopping Cart</h1>
+
+<div class="empty-cart" th:if="${cartItems.size() == 0}">
+    <p>Your cart is empty.</p>
+</div>
+
+<table th:if="${cartItems.size() > 0}">
+    <thead>
+    <tr>
+        <th>📖 Book</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item, iterStat : ${cartItems}">
+        <td>
+            <span class="book-icon" th:switch="${iterStat.index % 5}">
+                <span th:case="0">📘</span>
+                <span th:case="1">📗</span>
+                <span th:case="2">📙</span>
+                <span th:case="3">📕</span>
+                <span th:case="*">📓</span>
+            </span>
+            <span th:text="${item.book.title}"></span>
+        </td>
+        <td th:text="'$' + ${item.book.price}"></td>
+        <td th:text="${item.quantity}"></td>
+        <td>
+            <a th:href="@{'/cart/remove/' + ${item.book.id}}">Remove</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="total-section" th:if="${cartItems.size() > 0}">
+    <p><strong>Total Purchase Value:</strong> $<span th:text="${total}"></span></p>
+</div>
+
+<div class="checkout-section" th:if="${cartItems.size() > 0}">
+    <p><strong>Complete your purchase:</strong></p>
+    <form th:action="@{/cart/checkout}" method="post">
+        <label>Credit/Debit Card:</label>
+        <input type="number" name="creditCard" required />
+
+        <label for="expiry">Expiry Date:</label>
+        <input type="text" id="expiry" name="expiry" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/\d{2}" required>
+
+        <label>CV Number:</label>
+        <input type="number" name="CVnumber" required />
+
+        <button type="submit">💳 Buy Now</button>
+    </form>
+</div>
+
+<div class="back-link">
+    <a th:href="@{/books}">← Back to available books</a>
+</div>
+
+</body>
+</html>
+
