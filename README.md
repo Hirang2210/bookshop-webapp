@@ -82,6 +82,6 @@ Screenshots:
 ![image](https://github.com/user-attachments/assets/9f8cae4a-f349-4d19-b113-c9a8e912be2f)
 
 
-- **Login credentials and user details** 
+**Login credentials and user details** 
 ![image](https://github.com/user-attachments/assets/c02806e4-95db-485a-abbd-4ef37a869db4)
 
