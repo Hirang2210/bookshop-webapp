@@ -51,8 +51,8 @@ Import bookshop_db.sql to populate it.
 In src/main/resources/application.properties, check that:
 
 - spring.datasource.url=jdbc:mysql://localhost:3306/bookshop_db?useSSL=false&serverTimezone=UTC
-- spring.datasource.username=your_db_username
-- spring.datasource.password=your_db_password
+- spring.datasource.username=**your_db_username**
+- spring.datasource.password=**your_db_password**
   
 
 4. **Run the application**
