@@ -79,13 +79,9 @@ Screenshots:
 ![image](https://github.com/user-attachments/assets/8549e34c-9efa-4d0b-ae87-9e9811b654f5)
 
 **New customer registration page**
-![image](https://github.com/user-attachments/assets/a001ee45-3cfc-4d3c-b4a1-1bb36e16feac)
+![image](https://github.com/user-attachments/assets/9f8cae4a-f349-4d19-b113-c9a8e912be2f)
 
 
-- Login credentials and user details 
-- email 		&		password
-- admin@bookshop.com	-	admin123
-- customer@bookshop.com	-	customer123
-- test@gmail.com       -	abc123
-- sadhvi@test.com		-	abc123
-- sadhvi@gmail.com 	-	abcde12345
+- **Login credentials and user details** 
+![image](https://github.com/user-attachments/assets/c02806e4-95db-485a-abbd-4ef37a869db4)
+
