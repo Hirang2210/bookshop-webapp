@@ -33,8 +33,7 @@ A simple online bookstore built with Spring Boot, supporting customer and admin 
 
 ---
 
-## 🔧 Setup Instructions
-## 🧪 How to Run Locally
+## 🔧 Setup Instructions and How to Run Locally
 
 1. **Clone the repo**
 
@@ -43,20 +42,21 @@ A simple online bookstore built with Spring Boot, supporting customer and admin 
    cd bookshop-webapp
 
 
-2. Set up MySQL
+2. **Set up MySQL**
 Ensure MySQL server is running.
 Create a database named bookshop_db.
 Import bookshop_db.sql to populate it.
-3. Configure application properties
+
+4. **Configure application properties**
 In src/main/resources/application.properties, check that:
 spring.datasource.url=jdbc:mysql://localhost:3306/bookshop_db
 spring.datasource.username=your_db_username
 spring.datasource.password=your_db_password
 
-4. Run the application
+5. **Run the application**
 Run BookShopApplication.java from your IDE
 
-5. Open the Browser and go to http://localhost:8080
+6. **Open the Browser and go to http://localhost:8080**
 
 Screenshots:
 
