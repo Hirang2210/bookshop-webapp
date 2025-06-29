@@ -53,11 +53,12 @@ In src/main/resources/application.properties, check that:
 - spring.datasource.url=jdbc:mysql://localhost:3306/bookshop_db
 - spring.datasource.username=your_db_username
 - spring.datasource.password=your_db_password
+  
 
-5. **Run the application**
+4. **Run the application**
 Run BookShopApplication.java from your IDE
 
-6. **Open the Browser and go to http://localhost:8080**
+5. **Open the Browser and go to http://localhost:8080**
 
 Screenshots:
 
